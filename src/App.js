@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Homepage from './components/Homepage'
 import PrivateRoute from './utils/PrivateRoute'
 import Login from "./components/Login";
-
+import Register from "./components/Register";
 //Initial Form Values
 const initialLoginFormValues = {
   username: "",
@@ -78,8 +78,9 @@ function App() {
       <h1>App.js placeholder</h1>
       <Router>
       <div className="App">
-        <PrivateRoute path='/homepage' component={Homepage} values={loginFormValues} update={loginInputChange} submit={submitLoginForm}/>
-        <Route exact path="/" component={()=> <Login values={loginFormValues} update={loginInputChange} submit={submitLoginForm}/>} />
+        <PrivateRoute path='/homepage' component={Homepage} />
+        <Route exact path="/login" component={()=> <Login values={loginFormValues} update={loginInputChange} submit={submitLoginForm}/>} />
+        <Route exact path="/register" component={()=> <Register values={registerFormValues} update={registerInputChange} submit={submitRegisterForm}/>} />
       </div>
     </Router>
     </div>
