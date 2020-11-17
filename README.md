@@ -1,7 +1,7 @@
 # Front End Expat Journal
 
-## LINK FOR DOCUMENTATION AND API ENDPOINT ON POSTMAN
-# API Endpoints for BW Expat Journal Project :
+# LINK FOR DOCUMENTATION AND API ENDPOINT ON POSTMAN
+## API Endpoints for BW Expat Journal Project :
 https://documenter.getpostman.com/view/13492253/TVeqc6bz#auth-info-6c2646a0-1385-4c47-b080-19ca2ecdfb32
 
 ## Documentation
