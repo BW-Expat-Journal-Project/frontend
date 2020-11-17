@@ -1,8 +1,17 @@
 # Getting Started with Create React App
 
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+=======
+# LINK FOR DOCUMENTATION AND API ENDPOINT ON POSTMAN
+## API Endpoints for BW Expat Journal Project :
+https://documenter.getpostman.com/view/13492253/TVeqc6bz#auth-info-6c2646a0-1385-4c47-b080-19ca2ecdfb32
+
+## Documentation
+Base URL for deployed API: https://bw-expat-journal-web.herokuapp.com/ 
+>>>>>>> 45b016f9ea7d8ba59523d1c68ec308c559e5c60a
 
 In the project directory, you can run:
 
