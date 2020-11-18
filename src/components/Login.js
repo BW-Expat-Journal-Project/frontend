@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-
+import { useHistory } from 'react-router-dom'
 import axiosWithAuth from '../utils/axiosWithAuth'
 
-const Login = (props) => {
-  // make a post request to retrieve a token from the api
-  // when you have handled the token, navigate to the BubblePage route
+const Login = ( props ) => {
 
   const [ login, setLogin ] = useState({
       username: '',
@@ -18,16 +16,17 @@ const Login = (props) => {
       })
   }
 
+  const history = useHistory()
+  
   const handleSubmit = e => {
       e.preventDefault();
       axiosWithAuth()
           .post('/auth/login', login)
           .then(res => {
-            //   console.log(res.data.user.id);
               sessionStorage.setItem('expatJournalToken', res.data.payload);
               sessionStorage.setItem('currentUser', res.data.user.id);
-
-              props.history.push('/homepage');
+              props.setLoggedIn(true)
+              history.push('/homepage');
           })
           .catch(err => console.log(`Login.js axiosWithAuth error:`, err.response ))
   }
