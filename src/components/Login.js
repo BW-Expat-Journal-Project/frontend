@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom'
+import { storageKeyToken } from "../config";
 import axiosWithAuth from '../utils/axiosWithAuth'
 
 const Login = ( props ) => {
@@ -23,7 +24,7 @@ const Login = ( props ) => {
       axiosWithAuth()
           .post('/auth/login', login)
           .then(res => {
-              sessionStorage.setItem('expatJournalToken', res.data.payload);
+              sessionStorage.setItem(storageKeyToken, res.data.token);
               sessionStorage.setItem('currentUser', res.data.user.id);
               props.setLoggedIn(true)
               history.push('/homepage');
