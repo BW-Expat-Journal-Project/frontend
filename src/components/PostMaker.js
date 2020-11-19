@@ -15,7 +15,7 @@ const PostMaker = ({
             title="Delete"
             onClick={(e) => {
               e.preventDefault();
-              handleDelete();
+              handleDelete(post);
             }} 
             className="btn-delete"
           >

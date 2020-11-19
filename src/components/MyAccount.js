@@ -3,7 +3,6 @@ import axiosWithAuth from '../utils/axiosWithAuth'
 import PostMaker from "./PostMaker";
 import { storageKeyUser } from "../config";
 import PostForm from "./PostForm";
-import { isWindow } from "jquery";
 
 
 const MyAccount =  () => {
@@ -17,9 +16,11 @@ const MyAccount =  () => {
   const getMyPosts = () => {
     setLoading(true);
     return axiosWithAuth()
-      .get(`users/${userId}/posts`)
+      // .get(`users/${userId}/posts`)
+      .get('posts')
       .then((res) => {
-        setMyPosts(res.data)
+        // setMyPosts(res.data)
+        setMyPosts(res.data.postsdata)
       })
       .catch((err) => console.log(`There is an error fetching.`))
       .finally(_ => {
@@ -33,6 +34,8 @@ const MyAccount =  () => {
 
   const handleSetEdit = (post) => {
     setEditItem(post);
+    window.scrollTo(0,0);
+
   };
 
   const handleCancelEdit = () => {
@@ -47,6 +50,9 @@ const MyAccount =  () => {
     axiosWithAuth()
       .delete(`posts/${post.id}`)
       .then(() => {
+        if (!!editItem && (post.id === editItem.id)) {
+          setEditItem(null)
+        }
         return getMyPosts();
       })
       .catch((err) =>  console.log('There is an error updating.'))
